@@ -2,16 +2,19 @@ class Doctor {
   final String name;
   final String specialty;
   final String rating;
+  final int shadedStars;
   final String hospital;
-  final String patientCount;
+  final int patientCount;
   final String experience;
   final String description;
   final String profilePicture;
   final bool isOpen;
+
   Doctor(
       {required this.name,
       required this.specialty,
       required this.rating,
+      required this.shadedStars,
       required this.hospital,
       required this.patientCount,
       required this.experience,
@@ -25,8 +28,9 @@ var topDoctors = [
       name: 'Dr. Gilang Segara Bening',
       specialty: 'Heart',
       rating: '4.8',
+      shadedStars: 4,
       hospital: 'Persahabatan Hospital',
-      patientCount: '1221',
+      patientCount: 1221,
       experience: '3',
       description:
           'is one of the best doctors in the Persahabat Hospital. He has saved more than 1000 patients in the past 3 years. He has also received many awards from domestic and abroad as the best doctors. He is available on a private or schedule.',
@@ -36,30 +40,33 @@ var topDoctors = [
       name: 'Dr. Shabil Chan',
       specialty: 'Dental',
       rating: '4.7',
+      shadedStars: 4,
       hospital: 'Columbia Asia Hospital',
-      patientCount: '964',
+      patientCount: 964,
       experience: '4',
       description:
           'is one of the best doctors in the Columbia Asia Hospital. He has saved more than 900 patients in the past 4 years. He has also received many awards from domestic and abroad as the best doctors. He is available on a private or schedule.',
       profilePicture: 'images/Group-23.png',
-      isOpen: false),
+      isOpen: true),
   Doctor(
       name: 'Dr. Mustakim',
       specialty: 'Eye',
       rating: '4.9',
+      shadedStars: 5,
       hospital: 'Salemba Carolus Hospital',
-      patientCount: '762',
+      patientCount: 762,
       experience: '5',
       description:
           'is one of the best doctors in the Salemba Carolus Hospital. He has saved more than 700 patients in the past 5 years. He has also received many awards from domestic and abroad as the best doctors. He is available on a private or schedule.',
       profilePicture: 'images/Group-24.png',
-      isOpen: true),
+      isOpen: false),
   Doctor(
       name: 'Dr. Suprihatini',
       specialty: 'Heart',
       rating: '4.8',
+      shadedStars: 4,
       hospital: 'Salemba Carolus Hospital',
-      patientCount: '1451',
+      patientCount: 1451,
       experience: '6',
       description:
           'is one of the best doctors in the Salemba Carolus Hospital. He has saved more than 1400 patients in the past 6 years. He has also received many awards from domestic and abroad as the best doctors. He is available on a private or schedule.',

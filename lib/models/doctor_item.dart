@@ -1,28 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_doctor_app/doctor_status.dart';
-import 'package:flutter_doctor_app/rating.dart';
+import 'package:flutter_doctor_app/models/doctor.dart';
+import 'package:flutter_doctor_app/models/doctor_status.dart';
+import 'package:flutter_doctor_app/models/rating.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class DoctorItem extends StatelessWidget {
-  final String imgUrl;
-  final String doctorName;
-  final String category;
-  final String hospital;
-  final int index;
-  final int rating;
-  final String numReviews;
-  final bool status;
+  final Doctor doctor;
 
   const DoctorItem({
     super.key,
-    required this.imgUrl,
-    required this.doctorName,
-    required this.category,
-    required this.hospital,
-    required this.index,
-    required this.rating,
-    required this.numReviews,
-    required this.status,
+    required this.doctor,
   });
 
   @override
@@ -43,7 +30,7 @@ class DoctorItem extends StatelessWidget {
                   color: const Color(0xffEAEAEA),
                 ),
                 child: Image.asset(
-                  imgUrl,
+                  doctor.profilePicture,
                   scale: 2.0,
                 )),
             Padding(
@@ -52,7 +39,7 @@ class DoctorItem extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    doctorName,
+                    doctor.name,
                     style: GoogleFonts.lato(
                       fontWeight: FontWeight.w600,
                       fontSize: 16.0,
@@ -65,7 +52,7 @@ class DoctorItem extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          category,
+                          doctor.specialty,
                           style: GoogleFonts.lato(
                             fontWeight: FontWeight.w500,
                             fontSize: 14.0,
@@ -77,7 +64,7 @@ class DoctorItem extends StatelessWidget {
                           child: Image.asset('images/Ellipse-3.png'),
                         ),
                         Text(
-                          hospital,
+                          doctor.hospital,
                           style: GoogleFonts.lato(
                             fontWeight: FontWeight.w500,
                             fontSize: 14.0,
@@ -92,13 +79,12 @@ class DoctorItem extends StatelessWidget {
                     child: Row(
                       children: [
                         Rating(
-                          index: index,
-                          rating: rating,
+                          starCount: doctor.shadedStars,
                         ),
                         Padding(
                           padding: const EdgeInsets.only(left: 4.0),
                           child: Text(
-                            numReviews,
+                            '(',
                             style: GoogleFonts.lato(
                               fontWeight: FontWeight.w500,
                               fontSize: 10.0,
@@ -106,9 +92,21 @@ class DoctorItem extends StatelessWidget {
                             ),
                           ),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 40.0),
-                          child: DoctorStatus(status: status),
+                        Text(
+                          doctor.patientCount.toString(),
+                          style: GoogleFonts.lato(
+                            fontWeight: FontWeight.w500,
+                            fontSize: 10.0,
+                            color: const Color(0xffAAAAAA),
+                          ),
+                        ),
+                        Text(
+                          ')',
+                          style: GoogleFonts.lato(
+                            fontWeight: FontWeight.w500,
+                            fontSize: 10.0,
+                            color: const Color(0xffAAAAAA),
+                          ),
                         ),
                       ],
                     ),
@@ -118,6 +116,8 @@ class DoctorItem extends StatelessWidget {
             )
           ],
         ),
+        Positioned(
+            top: 56.0, left: 280, child: DoctorStatus(status: doctor.isOpen)),
       ],
     );
   }
