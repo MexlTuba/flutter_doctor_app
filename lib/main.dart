@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_doctor_app/models/doctor.dart';
 import 'package:flutter_doctor_app/screens/doctor_details.dart';
-<<<<<<< HEAD
 import 'models/doctor.dart';
-import 'home_page.dart';
-=======
+import 'screens/home_page.dart';
+
 import 'package:flutter_doctor_app/screens/home_page.dart';
->>>>>>> 37490bacff828b77a8e57e502abfe8bd2257d121
 
 void main() {
   runApp(const MyApp());
